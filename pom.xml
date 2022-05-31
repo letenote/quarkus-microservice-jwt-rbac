@@ -5,7 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.letenote</groupId>
     <artifactId>quarkus-microservice-jwt-rbac</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>product-service</module>
+    </modules>
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <failsafe.useModulePath>false</failsafe.useModulePath>
