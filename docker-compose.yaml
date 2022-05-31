@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  product-service:
+    container_name: product-service
+    image: letenote/product-service:1.0-SNAPSHOT
+    ports:
+      - "8081:8081"
+    environment:
+      TZ: Asia/Jakarta
+      MP_JWT_VERIFY_PUBLICKEY_LOCATION: /jwt/publicKey.pem
+    volumes:
+      - type: bind
+        source: ./jwt
+        target: /jwt
+    depends_on:
+      - auth-service
+  auth-service:
+    container_name: auth-service
+    image: letenote/auth-service:1.0-SNAPSHOT
+    ports:
+      - "8082:8082"
+    environment:
+      TZ: Asia/Jakarta
+      SMALLRYE_JWT_SIGN_KEY_LOCATION: /jwt/privateKey.pem
+    volumes:
+      - type: bind
+        source: ./jwt
+        target: /jwt
