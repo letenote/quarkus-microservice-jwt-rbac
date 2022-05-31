@@ -21,6 +21,7 @@ services:
       - "8082:8082"
     environment:
       TZ: Asia/Jakarta
+      GREETING_ENV: greeting from Docker
       SMALLRYE_JWT_SIGN_KEY_LOCATION: /jwt/privateKey.pem
     volumes:
       - type: bind
